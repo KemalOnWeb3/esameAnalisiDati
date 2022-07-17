@@ -1,0 +1,435 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  ignorenonframetext,
+]{beamer}
+\usepackage{pgfpages}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+% Prevent slide breaks in the middle of a paragraph
+\widowpenalties 1 10000
+\raggedbottom
+\setbeamertemplate{part page}{
+  \centering
+  \begin{beamercolorbox}[sep=16pt,center]{part title}
+    \usebeamerfont{part title}\insertpart\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{section page}{
+  \centering
+  \begin{beamercolorbox}[sep=12pt,center]{part title}
+    \usebeamerfont{section title}\insertsection\par
+  \end{beamercolorbox}
+}
+\setbeamertemplate{subsection page}{
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center]{part title}
+    \usebeamerfont{subsection title}\insertsubsection\par
+  \end{beamercolorbox}
+}
+\AtBeginPart{
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \frame{\subsectionpage}
+}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\newif\ifbibliography
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Inequality of incomes},
+  pdfauthor={Kemal Cleva 160593},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Inequality of incomes}
+\author{Kemal Cleva 160593}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Disuguaglianza dei redditi}
+\protect\hypertarget{disuguaglianza-dei-redditi}{}
+\begin{quote}
+Parlando di disuguaglianza dei redditi si pensa subito che con l'andare
+degli anni essa aumenti irreversibilitmente in tutto il mondo.
+Utilizzeremo la scienza dei dati per scoprire come vanno effettivamente
+le cose.
+\end{quote}
+
+\begin{quote}
+Il seguente plot espone in maniera generale l'andamento negli anni (dal
+1900 al 2016) della disugualianza dei redditi.
+\end{quote}
+\end{frame}
+
+\begin{frame}{Plot delle nazioni}
+\protect\hypertarget{plot-delle-nazioni}{}
+\end{frame}
+
+\begin{frame}{Gini}
+\protect\hypertarget{gini}{}
+\begin{quote}
+Il rapporto Gini, è una misura della dispersione statistica destinata a
+rappresentare la disuguaglianza di reddito o la disuguaglianza di
+ricchezza all'interno di una nazione.
+\end{quote}
+
+\begin{quote}
+Di seguito vedremo un boxplot che prende come variabili Gini e Paese.
+\end{quote}
+\end{frame}
+
+\begin{frame}{BoxPlot Gini su nazioni}
+\protect\hypertarget{boxplot-gini-su-nazioni}{}
+\end{frame}
+
+\begin{frame}{Modello e predizioni}
+\protect\hypertarget{modello-e-predizioni}{}
+\begin{quote}
+Con una predizione possiamo vedere chiaramente qual è la tendenza
+(direzione) di tutti i paesi in termini di disuguaglianza di reddito.
+Con la funzione geom\_line() si può creare una linea di tendenza
+(predizione).
+\end{quote}
+\end{frame}
+
+\begin{frame}{GGPlot dei valori osservati e predetti}
+\protect\hypertarget{ggplot-dei-valori-osservati-e-predetti}{}
+\end{frame}
+
+\begin{frame}{Import}
+\protect\hypertarget{import}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  first you must import your data into R
+\item
+  this typically means that you take data stored in a file, database, or
+  web API, and load it into a data frame in R
+\item
+  if you canâ€™t get your data into R, you canâ€™t do data science on it
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Tidy}
+\protect\hypertarget{tidy}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  once youâ€™ve imported your data, it is a good idea to \textbf{tidy}
+  it
+\item
+  tidying your data means storing it in a consistent form that matches
+  the semantics of the dataset with the way it is stored
+\item
+  in brief, when your data is tidy, each column is a variable and each
+  row is an observation
+\item
+  tidy data is important because the consistent structure lets you focus
+  on questions about the data, not fighting to get the data into the
+  right form to answer your questions
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Transform}
+\protect\hypertarget{transform}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  once you have tidy data, a common first step is to \textbf{transform}
+  (or \textbf{query}) it
+\item
+  transformation includes:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    narrowing in on observations of interest (like all people in one
+    city, or all data from the last year)
+  \item
+    creating new variables that are functions of existing variables
+    (like computing velocity from speed and time)
+  \item
+    calculating a set of summary statistics (like counts or means)
+  \end{itemize}
+\item
+  together, tidying and transforming are called \textbf{wrangling},
+  because getting your data in a form that's natural to work with often
+  feels like a fight!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualize and model}
+\protect\hypertarget{visualize-and-model}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  once you have tidy data with the variables you need, there are two
+  main engines of knowledge generation: \textbf{visualisation} and
+  \textbf{modelling}
+\item
+  these have complementary strengths and weaknesses so any real analysis
+  will iterate between them many times
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Visualize}
+\protect\hypertarget{visualize}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \textbf{visualisation} is a fundamentally human activity
+\item
+  good visualisation will show you things that you did not expect, or
+  raise new questions about the data
+\item
+  a good visualisation might also hint that you're asking the wrong
+  question, or you need to collect different data
+\item
+  visualisations can surprise you, but \textbf{don't scale} particularly
+  well because they require a human to interpret them
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\end{frame}
+
+\begin{frame}{Model}
+\protect\hypertarget{model}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  \textbf{models} are complementary tools to visualisation
+\item
+  the goal of a model is to provide a simple low-dimensional summary of
+  a dataset
+\item
+  ideally, the model will capture true \textbf{signals} (i.e.~patterns
+  generated by the phenomenon of interest) and ignore \textbf{noise}
+  (i.e.~random variation that youâ€™re not interested in)
+\item
+  models are a fundamentally mathematical or computational tool, so they
+  generally scale well
+\item
+  but ``\emph{the map is not the territory}'': every model makes
+  assumptions, and these make a difference between reality and a model
+  of reality
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Communicate}
+\protect\hypertarget{communicate}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  the last step of data science is \textbf{communication}, an absolutely
+  critical part of any data analysis project
+\item
+  it doesn't matter how well your models and visualisation have led you
+  to understand the data unless you can also communicate your results to
+  others, including the future you
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Hypothesis generation or confirmation?}
+\protect\hypertarget{hypothesis-generation-or-confirmation}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  itâ€™s possible to divide data analysis into two camps: hypothesis
+  generation and hypothesis confirmation
+\item
+  the focus of this course is on \textbf{hypothesis generation}, or data
+  exploration
+\item
+  here youâ€™ll look deeply at the data and, in combination with your
+  subject knowledge, generate many interesting hypotheses to help
+  explain why the data behaves the way it does
+\item
+  you evaluate the hypotheses informally, using your skepticism to
+  challenge the data in multiple ways
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tidyverse}
+\protect\hypertarget{tidyverse}{}
+We'll follow the data science graph using the
+\href{https://www.tidyverse.org}{tidyverse} approach developed by Hadley
+Wickham
+
+\begin{quote}
+The tidyverse is an opinionated collection of R packages designed for
+data science. All packages share an underlying design philosophy,
+grammar, and data structures. Hadley Wickham
+\end{quote}
+
+Install the complete tidyverse with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{install.packages}\NormalTok{(}\StringTok{"tidyverse"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\end{frame}
+
+\begin{frame}{Big data}
+\protect\hypertarget{big-data}{}
+\begin{quote}
+Big data refers to datasets whose size is beyond the ability of typical
+database software tools to capture, store, manage, and analyze
+\end{quote}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  this course proudly focuses on small, in-memory datasets
+\item
+  this is the right place to start because you canâ€™t tackle big data
+  unless you have experience with small data
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Big data solutions}
+\protect\hypertarget{big-data-solutions}{}
+\begin{enumerate}[<+->]
+\tightlist
+\item
+  while the complete data might be big, often the data needed to answer
+  a specific question is small; you might be able to find a
+  \textbf{sample} or summary that fits in memory and still allows you to
+  answer the question that you're interested in
+\item
+  you can \textbf{scale up} or \textbf{scale out} your hardware
+\item
+  you can store (in secondary memory) your dataset in a
+  \textbf{database} and use packages like
+  \href{https://cran.r-project.org/web/packages/dbplyr/index.html}{dbplyr}
+  to work with remote database tables as if they are in-memory data
+  frames
+\item
+  you can take advantage of a \textbf{cloud storage and computing
+  system}, like
+  \href{https://cloud.google.com/bigquery?hl=en}{BigQuery}, and access
+  it from R with package
+  \href{https://CRAN.R-project.org/package=bigrquery}{bigrquery}
+\item
+  finally, you can use a \textbf{cluster computing platform} that allows
+  you to spread your data and your computations across multiple machines
+  and work with packages like \href{https://spark.rstudio.com}{sparklyr}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{Blockchain}
+\protect\hypertarget{blockchain}{}
+\begin{itemize}[<+->]
+\tightlist
+\item
+  informally, a \textbf{blockchain} is a time-stamped record of any kind
+  of information, organized into blocks that are chained together
+\item
+  more formally, a blockchain is:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    a \textbf{distributed system}
+  \item
+    using \textbf{cryptography}
+  \item
+    to secure an evolving \textbf{consensus}
+  \item
+    about a \textbf{token} with economic value
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\end{document}
